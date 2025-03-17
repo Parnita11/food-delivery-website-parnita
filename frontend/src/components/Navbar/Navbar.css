@@ -1,51 +1,74 @@
-.navbar{
-    padding: 20px 0px;
+.navbar {
+    padding: 20px 4vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: white;
+    max-width: 100vw; /* Ensure navbar stays within the viewport */
+    overflow-x: hidden; /* Prevent elements from going off-screen */
+    flex-wrap: wrap; /* Allow elements to adjust properly */
 }
-.navbar .logo{
-    width: 150px;
+
+/* Logo */
+.navbar .logo {
+    width: clamp(100px, 12vw, 150px);
+    height: auto;
 }
-.navbar-menu{
+
+/* Menu */
+.navbar-menu {
     display: flex;
     list-style: none;
-    gap: 20px;
+    gap: clamp(10px, 2vw, 20px);
     color: #49557e;
-    font-size: 18px;
+    font-size: clamp(14px, 1.2vw, 18px);
+    flex-wrap: wrap; /* Ensures text does not overflow */
 }
 
-.navbar-right{
+/* Navbar Right (Icons + Sign-in) */
+.navbar-right {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: clamp(20px, 3vw, 40px);
+    flex-wrap: wrap; /* Ensures icons do not go off-screen */
 }
 
-.navbar button{
+/* Search & Cart Icons */
+.navbar-right img {
+    width: clamp(20px, 2.5vw, 35px);
+    height: auto;
+    cursor: pointer;
+}
+
+/* Sign-in Button */
+.navbar button {
     background: transparent;
-    font-size: 16px;
+    font-size: clamp(12px, 1vw, 16px);
     color: #49557e;
     border: 1px solid tomato;
-    padding: 10px 30px;
+    padding: clamp(6px, 1vw, 10px) clamp(20px, 3vw, 30px);
     border-radius: 50px;
     cursor: pointer;
     transition: 0.3s;
+    white-space: nowrap; /* Prevents button text from wrapping */
 }
-.navbar button:hover{
-    background-color: #fff4f2;
 
+.navbar button:hover {
+    background-color: #fff4f2;
 }
-.navbar .active{
+
+/* Active Menu Item */
+.navbar .active {
     padding-bottom: 2px;
     border-bottom: 2px solid #49557e;
 }
-.navbar li{
-    cursor:pointer;
-}
-.navbar-search-icon{
+
+/* Search Notification Dot */
+.navbar-search-icon {
     position: relative;
 }
-.navbar-search-icon .dot{
+
+.navbar-search-icon .dot {
     position: absolute;
     min-width: 10px;
     min-height: 10px;
@@ -54,45 +77,72 @@
     top: -8px;
     right: -8px;
 }
-@media (max-width:1050px) {
-    .navbar .logo{
-        width: 140px;
-    }
-    .navbar-menu{
-        gap: 20px;
+
+.navbar-profile{
+    position: relative;
+}
+.nav-profile-dropdown{
+    position: absolute;
+    display: none;
+    right: 0;
+    z-index: 1;
+}
+
+.navbar-profile:hover .nav-profile-dropdown{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #fff2ef;
+    padding: 12px 25px;
+    border-radius: 4px;
+    border: 1px solid tomato;
+    outline: 2px solid white;
+    list-style: none;
+}
+.nav-profile-dropdown li{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+.nav-profile-dropdown img {
+    width: 20px;
+}
+.nav-profile-dropdown li:hover{
+    color: tomato;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1050px) {
+    .navbar-menu {
+        gap: 15px;
         font-size: 17px;
     }
-    .navbar-right{
+    .navbar-right {
         gap: 30px;
     }
-    .navbar-right img{
-        width: 22px;
-    }
-    .navbar-right button{
-        padding: 8px 25px;
-    }
 }
-@media (max-width:900px) {
-    .navbar .logo{
-        width: 120px;
-    }
-    .navbar-menu{
-        gap: 15px;
-        font-size: 16px;
-    }
-    .navbar-right{
-        gap: 20px;
-    }
-    .navbar-right img{
-        width: 202px;
-    }
-    .navbar-right button{
-        padding: 7px 20px;
+
+@media (max-width: 900px) {
+    .navbar-menu {
+        gap: 10px;
         font-size: 15px;
     }
+    .navbar-right {
+        gap: 15px;
+    }
 }
-@media (max-width:750px) {
-    .navbar-menu{
-        display: none;
+
+/* Fixing Leftward Scrolling Issue */
+@media (max-width: 750px) {
+    .navbar {
+        overflow-x: hidden; /* Prevents horizontal scrolling */
+    }
+    .navbar-right {
+        gap: 10px;
+    }
+    .navbar button {
+        padding: 6px 15px;
+        font-size: 13px;
     }
 }
