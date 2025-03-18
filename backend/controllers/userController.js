@@ -32,7 +32,6 @@ const createToken = (id) => {
 }
 
 // register user
-
 const registerUser = async (req,res) => {
     const {name,password,email} = req.body;
     // checking if user already exists
@@ -66,7 +65,7 @@ const registerUser = async (req,res) => {
 
     } catch (error) {
         console.log(error);
-        res.json({success:true,message:"Error"})
+        res.json({success:false,message:"Error"})
     }
 }
 
