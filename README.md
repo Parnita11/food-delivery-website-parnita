@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # FoodieExpress - Full Stack Food Delivery Website
 
 ## 📌 Overview
@@ -108,3 +109,7 @@ This project is licensed under the MIT License.
 
 📧 Contact
 For any queries, contact: diyaburman60@gmail.com
+=======
+
+
+>>>>>>> e51fb75e63429027d539c51273af9aa8f443e690
