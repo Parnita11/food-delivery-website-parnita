@@ -1,4 +1,4 @@
-# FoodieExpress - Full Stack Food Delivery Website
+# Tomato - Full Stack Food Delivery Website
 
 ## 📌 Overview
 This is a full-stack web application for a food delivery service that allows users to browse restaurants, order food, and track deliveries in real time.
