@@ -13,16 +13,16 @@ const Verify = () => {
     const navigate = useNavigate()
 
     const verifyPayment = async () => {
-        const response = await axios.post(import.meta.env.VITE_BACKEND_URL+"/api/order/verify",{success,orderId})
+        const response = await axios.post(url+"/api/order/verify",{success,orderId})
         
         if (response.data.success) {
-          alert("Payment Successful! 🎉");
+          // alert("Payment Successful! 🎉");
           navigate("/myorders");
         }
         else {
-          alert("Payment Failed! ❌");
+          // alert("Payment Failed! ❌");
+          navigate("/")
         }
-        navigate("/myorders")
     }
     useEffect(()=> {
         verifyPayment();
