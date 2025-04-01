@@ -17,7 +17,7 @@ const port = 4000
 app.use(express.json())
 app.use(
     cors({
-        origin: import.meta.env.CLIENT_URL || "*", // Ensure this allows your frontend
+        origin: meta.env.CLIENT_URL || "*", // Ensure this allows your frontend
         credentials: true,
     })
 );
