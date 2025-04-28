@@ -44,7 +44,7 @@ npm run dev
 ### cd backend
 ```
 npm install
-npm run server
+npm run dev
 ```
 ## Admin Panel:
 ```
