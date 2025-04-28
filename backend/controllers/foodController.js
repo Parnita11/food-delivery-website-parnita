@@ -55,4 +55,34 @@ const removeFood = async (req,res) => {
     }
 }
 
+export const getTopSellingFoods = async (req, res) => {
+    try {
+      const topFoods = await foodModel.aggregate([ // aggregation function is used to get the top selling foods
+        { $sort: { numOrders: -1 } },
+        { $limit: 5 }
+      ]);
+      res.status(200).json(topFoods);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch top foods", error });
+    }
+  };
+export const getAllFoods = async (req, res) => {
+    try {
+      const foods = await foodModel.find().populate('category'); // Populate added
+      res.json(foods);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+};
+
+const searchFood = async (req, res) => {
+    try {
+      const { keyword } = req.query;
+      const foods = await foods.find({ $text: { $search: keyword } });
+      res.json(foods);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  };
+  
 export {addFood, listFood, removeFood}
